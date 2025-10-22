@@ -74,4 +74,8 @@ resource "aws_instance" "example" {
   vpc_security_group_ids      = [aws_security_group.allow_ssh.id]
   key_name                    = aws_key_pair.default.key_name
   associate_public_ip_address = true
+
+  tags = {
+    Name = "cmtr-o84gfl9h-ec2"
+  }
 }
