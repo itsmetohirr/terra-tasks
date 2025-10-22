@@ -31,3 +31,6 @@ terraform.rc
 
 # Backup files created by Terraform
 *.backup
+
+
+https://github.com/itsmetohirr/terra-tasks.git
