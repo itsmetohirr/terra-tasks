@@ -68,10 +68,10 @@ resource "aws_security_group" "allow_ssh" {
 # 6️⃣ EC2 Instance
 # --------------------------
 resource "aws_instance" "example" {
-  ami                    = "ami-0341d95f75f311023"
-  instance_type          = "t3.micro"
-  subnet_id              = aws_subnet.public.id
-  vpc_security_group_ids = [aws_security_group.allow_ssh.id]
-  key_name               = aws_key_pair.default.key_name
+  ami                         = "ami-0341d95f75f311023"
+  instance_type               = "t3.micro"
+  subnet_id                   = aws_subnet.public.id
+  vpc_security_group_ids      = [aws_security_group.allow_ssh.id]
+  key_name                    = aws_key_pair.default.key_name
   associate_public_ip_address = true
 }
