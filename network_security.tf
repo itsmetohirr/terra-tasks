@@ -68,7 +68,7 @@ resource "aws_security_group" "allow_private_http" {
     from_port       = 80
     to_port         = 80
     protocol        = "tcp"
-    security_groups = [aws_security_group.allow_http]
+    security_groups = [aws_security_group.allow_http.id]
   }
 
   ingress {
@@ -76,7 +76,7 @@ resource "aws_security_group" "allow_private_http" {
     from_port       = -1
     to_port         = -1
     protocol        = "icmp"
-    security_groups = [aws_security_group.allow_http]
+    security_groups = [aws_security_group.allow_http.id]
   }
 
   egress {
