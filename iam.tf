@@ -3,7 +3,7 @@ resource "aws_iam_group" "developers" {
 }
 
 resource "aws_iam_policy" "s3_write_policy" {
-  name        = "S3WriteOnlyPolicy"
+  name        = "cmtr-o84gfl9h-iam-policy"
   description = "Allows only write (Put/Delete) access to a specific S3 bucket"
 
   # Inject the variable into the template file
@@ -35,6 +35,6 @@ resource "aws_iam_role_policy_attachment" "role_policy_attachment" {
 }
 
 resource "aws_iam_instance_profile" "ec2_instance_profile" {
-  name = "EC2InstanceProfile"
+  name = "cmtr-o84gfl9h-iam-instance-profile"
   role = aws_iam_role.ec2_role.name
 }
