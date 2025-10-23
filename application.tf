@@ -43,7 +43,7 @@ resource "aws_autoscaling_group" "cmtr_o84gfl9h_asg" {
   desired_capacity    = 2
   min_size            = 1
   max_size            = 2
-  vpc_zone_identifier = ["public_subnet_cidr_a", "public_subnet_cidr_b"]
+  vpc_zone_identifier = ["subnet-096f4d782f860bf94", "subnet-0fd0219c3b29c7562"]
 
   launch_template {
     id      = aws_launch_template.cmtr_o84gfl9h_template.id
@@ -86,7 +86,7 @@ resource "aws_lb" "cmtr_o84gfl9h_loadbalancer" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = ["sg-0c33e6cb2ac986fce"]
-  subnets            = ["public_subnet_cidr_a", "public_subnet_cidr_b"]
+  subnets            = ["subnet-096f4d782f860bf94", "subnet-0fd0219c3b29c7562"]
 
   enable_deletion_protection = false
 
