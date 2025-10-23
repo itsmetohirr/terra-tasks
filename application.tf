@@ -11,8 +11,8 @@ resource "aws_launch_template" "cmtr_o84gfl9h_template" {
   network_interfaces {
     delete_on_termination = true
     security_groups = [
-      "cmtr-o84gfl9h-ec2_sg",
-      "cmtr-o84gfl9h-http_sg"
+      "sg-01cb8a3a361223599",
+      "sg-09a17a4853fe66478"
     ]
   }
 
@@ -85,7 +85,7 @@ resource "aws_lb" "cmtr_o84gfl9h_loadbalancer" {
   name               = "cmtr-o84gfl9h-loadbalancer"
   internal           = false
   load_balancer_type = "application"
-  security_groups    = ["cmtr-o84gfl9h-sglb"]
+  security_groups    = ["sg-0c33e6cb2ac986fce"]
   subnets            = ["public_subnet_cidr_a", "public_subnet_cidr_b"]
 
   enable_deletion_protection = false
@@ -104,7 +104,7 @@ resource "aws_lb_target_group" "cmtr_o84gfl9h_tg" {
   name     = "cmtr-o84gfl9h-tg"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = "cmtr-o84gfl9h-vpc"
+  vpc_id   = "vpc-016cb7ed54a5f5b1e"
 
   health_check {
     protocol            = "HTTP"
