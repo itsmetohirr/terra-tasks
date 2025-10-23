@@ -1,17 +1,32 @@
-variable "state_bucket" {
-  description = "Name of the S3 bucket storing the remote Terraform state"
-  type        = string
-  default     = "cmtr-o84gfl9h-tf-state-1761138286"
-}
-
-variable "state_key" {
-  description = "Path/key of the remote state file within the S3 bucket"
-  type        = string
-  default     = "infra.tfstate"
-}
+# ============================================================
+# General configuration variables
+# ============================================================
 
 variable "aws_region" {
-  description = "AWS region where the S3 bucket is located"
+  description = "The AWS region where all resources will be created"
   type        = string
-  default     = "us-east-1"
+}
+
+variable "project_id" {
+  description = "The project identifier used for tagging and naming resources"
+  type        = string
+}
+
+# ============================================================
+# Networking discovery variables
+# ============================================================
+
+variable "vpc_name" {
+  description = "The name of the existing VPC to discover and use"
+  type        = string
+}
+
+variable "public_subnet_name" {
+  description = "The name of the public subnet to discover within the VPC"
+  type        = string
+}
+
+variable "security_group_name" {
+  description = "The name of the existing security group to discover and attach to resources"
+  type        = string
 }

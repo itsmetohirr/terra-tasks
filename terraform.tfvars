@@ -1,0 +1,5 @@
+aws_region          = "us-east-1"
+project_id          = "cmtr-o84gfl9h"
+vpc_name            = "cmtr-o84gfl9h-vpc"
+public_subnet_name  = "cmtr-o84gfl9h-public-subnet-1"
+security_group_name = "cmtr-o84gfl9h-sg"
