@@ -9,6 +9,11 @@ variable "vpc_cidr" {
   type        = string
 }
 
+variable "vpc_name" {
+  description = "vpc name"
+  type        = string
+}
+
 variable "public_1_name" {
   description = "cmtr-o84gfl9h-subnet-public-a "
   type        = string

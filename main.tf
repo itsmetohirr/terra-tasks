@@ -1,5 +1,6 @@
 module "network" {
   source        = "./modules/network"
+  vpc_name      = "cmtr-o84gfl9h-vpc"
   vpc_cidr      = "10.10.0.0/16"
   public_1_name = "cmtr-o84gfl9h-subnet-public-a"
   public_1_cidr = "10.10.1.0/24"
