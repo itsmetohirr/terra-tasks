@@ -53,7 +53,6 @@ resource "aws_autoscaling_group" "asg" {
   health_check_type = "EC2"
   force_delete      = true
 
-  # connect to launch template
   launch_template {
     id      = aws_launch_template.lt.id
     version = "$Latest"
@@ -93,10 +92,10 @@ resource "aws_lb_target_group" "tg" {
     path                = "/"
     protocol            = "HTTP"
     matcher             = "200-399"
-    interval            = 30
-    timeout             = 5
+    interval            = 60
+    timeout             = 10
     healthy_threshold   = 2
-    unhealthy_threshold = 2
+    unhealthy_threshold = 3
   }
 }
 
