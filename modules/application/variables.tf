@@ -1,29 +1,29 @@
 variable "vpc_id" {
   description = "vpc id"
-  type = string
+  type        = string
 }
 
 variable "image_id" {
   description = "image id"
-  type = string
+  type        = string
 }
 
 variable "instance_type" {
   description = "intance type"
-  type = string
+  type        = string
 }
 
 variable "alb_sg_id" {
   description = "sg ids"
-  type = string
+  type        = string
 }
 
 variable "subnet_ids" {
   description = "subnet ids"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "private_http_sg_id" {
   description = "sg id"
-  type = string
+  type        = string
 }

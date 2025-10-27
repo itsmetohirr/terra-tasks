@@ -13,7 +13,7 @@ resource "aws_security_group" "ssh" {
   egress {
     from_port   = 0
     to_port     = 0
-    protocol    = "-1" 
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
@@ -33,7 +33,7 @@ resource "aws_security_group" "public_http" {
   egress {
     from_port   = 0
     to_port     = 0
-    protocol    = "-1" 
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
@@ -43,17 +43,17 @@ resource "aws_security_group" "private_http" {
   description = "Allow SSH and HTTP"
   vpc_id      = var.vpc_id
   ingress {
-    description = "SSH"
-    from_port   = var.http_port
-    to_port     = var.http_port
-    protocol    = "tcp"
-    security_groups = [ aws_security_group.public_http.id ]
+    description     = "SSH"
+    from_port       = var.http_port
+    to_port         = var.http_port
+    protocol        = "tcp"
+    security_groups = [aws_security_group.public_http.id]
   }
 
   egress {
     from_port   = 0
     to_port     = 0
-    protocol    = "-1" 
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }

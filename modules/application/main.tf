@@ -1,11 +1,11 @@
 resource "aws_launch_template" "lt" {
-  name = "cmtr-o84gfl9h-template"
+  name          = "cmtr-o84gfl9h-template"
   instance_type = var.instance_type
   image_id      = var.image_id
 
   # Attach SGs through network interface
   network_interfaces {
-    security_groups        = [
+    security_groups = [
       var.private_http_sg_id
     ]
     delete_on_termination = true
@@ -42,16 +42,16 @@ EOF
 }
 
 resource "aws_autoscaling_group" "asg" {
-  name                      = "cmtr-o84gfl9h-asg"
-  vpc_zone_identifier       = [var.vpc_id]
-  target_group_arns         = [aws_lb_target_group.tg.arn]
+  name                = "cmtr-o84gfl9h-asg"
+  vpc_zone_identifier = [var.vpc_id]
+  target_group_arns   = [aws_lb_target_group.tg.arn]
 
-  desired_capacity          = 2
-  min_size                  = 2
-  max_size                  = 2
+  desired_capacity = 2
+  min_size         = 2
+  max_size         = 2
 
-  health_check_type         = "EC2"
-  force_delete              = true
+  health_check_type = "EC2"
+  force_delete      = true
 
   # connect to launch template
   launch_template {
@@ -62,10 +62,10 @@ resource "aws_autoscaling_group" "asg" {
   lifecycle {
     create_before_destroy = true
 
-    ignore_changes = [ 
-        load_balancers,
-        target_group_arns
-     ]
+    ignore_changes = [
+      load_balancers,
+      target_group_arns
+    ]
   }
 }
 
