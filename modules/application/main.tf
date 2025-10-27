@@ -43,7 +43,7 @@ EOF
 
 resource "aws_autoscaling_group" "asg" {
   name                = "cmtr-o84gfl9h-asg"
-  vpc_zone_identifier = [var.vpc_id]
+  vpc_zone_identifier = var.subnet_ids
   target_group_arns   = [aws_lb_target_group.tg.arn]
 
   desired_capacity = 2
