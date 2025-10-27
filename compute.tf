@@ -11,10 +11,6 @@ resource "aws_launch_template" "blue_lt" {
     data.aws_security_group.http.id
   ]
 
-  network_interfaces {
-    associate_public_ip_address = true
-  }
-
   user_data = filebase64("${path.module}/start-blue.sh")
 }
 
