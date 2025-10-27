@@ -26,13 +26,10 @@ resource "aws_launch_template" "green_lt" {
   image_id      = data.aws_ami.amazon_linux.id
   instance_type = "t3.micro"
 
-  network_interfaces {
-    associate_public_ip_address = true
-    security_groups = [
-      data.aws_security_group.ssh.id,
-      data.aws_security_group.http.id
-    ]
-  }
+  vpc_security_group_ids = [
+    data.aws_security_group.ssh.id,
+    data.aws_security_group.http.id
+  ]
 
   user_data = filebase64("${path.module}/start-green.sh")
 }
