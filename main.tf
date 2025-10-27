@@ -20,7 +20,7 @@ module "network_security" {
   http_port        = 80
 }
 
-module "app" {
+module "application" {
   source             = "./modules/application"
   vpc_id             = module.network.vpc_id
   instance_type      = "t3.micro"
