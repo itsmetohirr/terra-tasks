@@ -113,5 +113,5 @@ resource "aws_lb_listener" "simple_http" {
 
 resource "aws_autoscaling_attachment" "asg_tg_attachment" {
   autoscaling_group_name = aws_autoscaling_group.asg.name
-  lb_target_group_arn   = aws_lb_target_group.tg.arn
+  lb_target_group_arn    = aws_lb_target_group.tg.arn
 }
